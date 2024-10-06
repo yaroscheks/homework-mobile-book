@@ -58,4 +58,26 @@ class PhoneBookTest {
         String name = phoneBook.findByNumber("2");
         assertEquals("B", name);
     }
+
+    @Test
+    public void testFindByNameExists() {
+        phoneBook.add("A", "1");
+        String number = phoneBook.findByName("A");
+        assertEquals("1", number);
+    }
+
+    @Test
+    public void testFindByNameDoesNotExist() {
+        phoneBook.add("A", "1");
+        String number = phoneBook.findByName("B");
+        assertNull(number);
+    }
+
+    @Test
+    public void testFindByNameMultipleContacts() {
+        phoneBook.add("A", "1");
+        phoneBook.add("B", "2");
+        String number = phoneBook.findByName("B");
+        assertEquals("2", number);
+    }
 }
