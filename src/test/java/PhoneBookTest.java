@@ -80,4 +80,25 @@ class PhoneBookTest {
         String number = phoneBook.findByName("B");
         assertEquals("2", number);
     }
+
+    @Test
+    public void testPrintAllNamesEmptyBook() {
+        phoneBook.printAllNames();
+        assertEquals("", outContent.toString().trim());
+    }
+
+    @Test
+    public void testPrintAllNamesSingleContact() {
+        phoneBook.add("A", "1");
+        phoneBook.printAllNames();
+        assertEquals("A", outContent.toString().trim());
+    }
+
+    @Test
+    public void testPrintAllNamesMultipleContacts() {
+        phoneBook.add("A", "1");
+        phoneBook.add("B", "2");
+        phoneBook.printAllNames();
+        assertEquals("A\nB", outContent.toString().trim());
+    }
 }
