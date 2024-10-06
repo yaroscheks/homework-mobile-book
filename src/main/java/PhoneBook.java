@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeSet;
 
 public class PhoneBook {
 
@@ -26,6 +27,7 @@ public class PhoneBook {
     }
 
     public void printAllNames() {
-
+        new TreeSet<>(contacts.keySet())
+                .forEach(System.out::println);
     }
 }
